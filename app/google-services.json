@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "504810196050",
+    "firebase_url": "https://digits-f831c.firebaseio.com",
+    "project_id": "digits-f831c",
+    "storage_bucket": "digits-f831c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504810196050:android:591b4e60e2f423a9",
+        "android_client_info": {
+          "package_name": "nik.digits"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504810196050-a7858i86sa5pr7dqcoog2sg7dooqn9qu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-IbHsLvVI9HCj8wVF49JQYJ4ExmVYV90"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
