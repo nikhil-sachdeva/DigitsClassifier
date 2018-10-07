@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/camera"
+<item android:id="@+id/cam_item"
     android:title="Camera"
     android:icon="@drawable/cam_icon"/>
     <item android:id="@+id/draw"
