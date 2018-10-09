@@ -61,4 +61,23 @@
             fab:fab_label="Menu Item 3"
             fab:fab_size="mini" />
     </com.github.clans.fab.FloatingActionMenu>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="78dp"
+        app:srcCompat="@drawable/cam_icon" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/material_design_android_floating_action_menu"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="78dp"
+        android:text="TextView" />
 </RelativeLayout>

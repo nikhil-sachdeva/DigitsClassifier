@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +43,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
 
-
+    ImageView imageView;
+    TextView textView;
     private static final int REQUEST_CODE_DRAW = 1;
     FloatingActionMenu materialDesignFAM;
     FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
@@ -55,8 +57,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        textView=findViewById(R.id.textView);
+        imageView=findViewById(R.id.imageView);
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.material_design_android_floating_action_menu);
         floatingActionButton2 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item2);
         floatingActionButton3 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item3);
@@ -84,9 +86,11 @@ public class MainActivity extends AppCompatActivity{
         Log.d(TAG, "onActivityResult: worked");
         byte[] result = data.getByteArrayExtra("bitmap");
         Bitmap bitmap = BitmapFactory.decodeByteArray(result, 0, result.length);
+        imageView.setImageBitmap(bitmap);
         try {
             ImageClassifier imageClassifier = new ImageClassifier(MainActivity.this);
             String ans = imageClassifier.classifyFrame(bitmap);
+            textView.setText(ans);
             Log.d(TAG, "onActivityResult: " + ans);
         } catch (IOException e) {
             e.printStackTrace();

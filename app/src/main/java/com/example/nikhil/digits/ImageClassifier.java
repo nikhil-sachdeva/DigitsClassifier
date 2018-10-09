@@ -1,10 +1,14 @@
 package com.example.nikhil.digits;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.os.SystemClock;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.tensorflow.lite.Interpreter;
 
@@ -33,8 +37,8 @@ public class ImageClassifier {
 
     private static final int DIM_PIXEL_SIZE = 3;
 
-    static final int DIM_IMG_SIZE_X = 224;
-    static final int DIM_IMG_SIZE_Y = 224;
+    private static final int DIM_IMG_SIZE_X = 224;
+    private static final int DIM_IMG_SIZE_Y = 224;
 
     private static final int IMAGE_MEAN = 128;
     private static final float IMAGE_STD = 128.0f;
@@ -85,7 +89,9 @@ public class ImageClassifier {
             Log.e(TAG, "Image classifier has not been initialized; Skipped.");
             return "Uninitialized Classifier.";
         }
-        convertBitmapToByteBuffer(bitmap);
+        Bitmap bitmap1 = Bitmap.createScaledBitmap(bitmap,224,224,true);
+        convertBitmapToByteBuffer(bitmap1);
+        Log.d(TAG, "classifyFrame: "+labelList.size());
         tflite.run(imgData, labelProbArray);
 
 
@@ -153,7 +159,7 @@ public class ImageClassifier {
         }
         imgData.rewind();
         Log.d(TAG, "convertBitmapToByteBuffer: width="+bitmap.getWidth()+"  height="+bitmap.getHeight());
-        bitmap.getPixels(intValues, 0, bitmap.getWidth()+1, 0, 0, bitmap.getWidth(), bitmap.getHeight());
+        bitmap.getPixels(intValues, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
         // Convert the image to floating point.
         int pixel = 0;
 
