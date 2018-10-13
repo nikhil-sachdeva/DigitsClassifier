@@ -4,9 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <ImageView
-        android:id="@+id/mImageView"
+        android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
@@ -16,12 +15,24 @@
         app:srcCompat="@drawable/cam_icon" />
 
     <TextView
-        android:layout_below="@+id/mImageView"
-        android:id="@+id/mTextView"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="202dp"
+        android:text="TextView" />
+    <TextView
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:typeface="monospace"
+      android:layout_below="@id/imageView"
+        android:id="@+id/finaltext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/material_design_android_floating_action_menu"
         android:layout_alignParentStart="true"
         android:layout_marginStart="78dp"
         android:text="TextView" />
-</RelativeLayout>
+
+ </RelativeLayout>

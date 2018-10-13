@@ -20,8 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.divyanshu.draw.activity.DrawingActivity;
-import com.divyanshu.draw.widget.DrawView;
+
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
@@ -43,8 +42,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
 
-    ImageView imageView;
-    TextView textView;
+
     private static final int REQUEST_CODE_DRAW = 1;
     FloatingActionMenu materialDesignFAM;
     FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
@@ -57,8 +55,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView=findViewById(R.id.textView);
-        imageView=findViewById(R.id.imageView);
+
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.material_design_android_floating_action_menu);
         floatingActionButton2 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item2);
         floatingActionButton3 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item3);
@@ -66,8 +63,8 @@ public class MainActivity extends AppCompatActivity{
 
         floatingActionButton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivityForResult(new Intent(MainActivity.this, DrawingActivity.class),REQUEST_CODE_DRAW);
-                //startActivityForResult(new Intent(MainActivity.this,DrawActivity.class),REQUEST_CODE_DRAW);
+                //startActivityForResult(new Intent(MainActivity.this, DrawingActivity.class),REQUEST_CODE_DRAW);
+                startActivity(new Intent(MainActivity.this,DrawActivity.class));
 
             }
         });
@@ -81,37 +78,37 @@ public class MainActivity extends AppCompatActivity{
 
 
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        Log.d(TAG, "onActivityResult: worked");
-        byte[] result = data.getByteArrayExtra("bitmap");
-        Bitmap bitmap = BitmapFactory.decodeByteArray(result, 0, result.length);
-        imageView.setImageBitmap(bitmap);
-        try {
-            ImageClassifier imageClassifier = new ImageClassifier(MainActivity.this);
-            String ans = imageClassifier.classifyFrame(bitmap);
-            textView.setText(ans);
-            Log.d(TAG, "onActivityResult: " + ans);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if(requestCode==REQUEST_CODE_DRAW){
-            if(requestCode==Activity.RESULT_OK && data!=null) {
-                Log.d(TAG, "onActivityResult: worked");
-//                byte[] result = data.getByteArrayExtra("bitmap");
-//                Bitmap bitmap = BitmapFactory.decodeByteArray(result, 0, result.length);
-//                try {
-//                    ImageClassifier imageClassifier = new ImageClassifier(MainActivity.this);
-//                    String ans = imageClassifier.classifyFrame(bitmap);
-//                    Log.d(TAG, "onActivityResult: " + ans);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-            }
-
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        Log.d(TAG, "onActivityResult: worked");
+//        byte[] result = data.getByteArrayExtra("bitmap");
+//        Bitmap bitmap = BitmapFactory.decodeByteArray(result, 0, result.length);
+//        imageView.setImageBitmap(bitmap);
+//        try {
+//            ImageClassifier imageClassifier = new ImageClassifier(MainActivity.this);
+//            String ans = imageClassifier.classifyFrame(bitmap);
+//            textView.setText(ans);
+//            Log.d(TAG, "onActivityResult: " + ans);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        if(requestCode==REQUEST_CODE_DRAW){
+//            if(requestCode==Activity.RESULT_OK && data!=null) {
+//                Log.d(TAG, "onActivityResult: worked");
+////                byte[] result = data.getByteArrayExtra("bitmap");
+////                Bitmap bitmap = BitmapFactory.decodeByteArray(result, 0, result.length);
+////                try {
+////                    ImageClassifier imageClassifier = new ImageClassifier(MainActivity.this);
+////                    String ans = imageClassifier.classifyFrame(bitmap);
+////                    Log.d(TAG, "onActivityResult: " + ans);
+////                } catch (IOException e) {
+////                    e.printStackTrace();
+////                }
+//            }
+//
+//        }
+//        super.onActivityResult(requestCode, resultCode, data);
+//    }
 
 
 }

@@ -42,7 +42,7 @@ public class ImageClassifier {
 
     private static final int IMAGE_MEAN = 128;
     private static final float IMAGE_STD = 128.0f;
-    private static final int RESULTS_TO_SHOW = 3;
+    private static final int RESULTS_TO_SHOW = 10;
 
     private static final String MODEL_PATH = "graph.lite";
 
@@ -185,7 +185,7 @@ public class ImageClassifier {
         final int size = sortedLabels.size();
         for (int i = 0; i < size; ++i) {
             Map.Entry<String, Float> label = sortedLabels.poll();
-            textToShow = String.format("\n%s: %4.2f",label.getKey(),label.getValue()) + textToShow;
+            textToShow = String.format("\n%s: %4.5f",label.getKey(),label.getValue()) + textToShow;
         }
         return textToShow;
     }
