@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.nikhil.digits.Utils.ImageClassifier;
+
 import java.io.IOException;
 
 public class ResultActivity extends AppCompatActivity {
@@ -30,7 +32,7 @@ public class ResultActivity extends AppCompatActivity {
             ImageClassifier imageClassifier = new ImageClassifier(ResultActivity.this);
             String ans = imageClassifier.classifyFrame(bmp);
             textView.setText(ans);
-            finaltext.setText("The figure you drew was closest to: "+ans.substring(0,2));
+            finaltext.setText("The figure you drew was closest to: "+ans.substring(1,2));
         } catch (IOException e) {
             e.printStackTrace();
         }

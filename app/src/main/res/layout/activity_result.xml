@@ -14,14 +14,7 @@
         android:layout_marginTop="78dp"
         app:srcCompat="@drawable/cam_icon" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="202dp"
-        android:text="TextView" />
+
     <TextView
         android:textColor="#000000"
         android:textSize="20dp"
@@ -30,9 +23,17 @@
         android:id="@+id/finaltext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/material_design_android_floating_action_menu"
-        android:layout_alignParentStart="true"
         android:layout_marginStart="78dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_below="@+id/finaltext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
         android:text="TextView" />
 
  </RelativeLayout>

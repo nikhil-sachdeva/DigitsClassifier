@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,9 +46,9 @@ public class MainActivity extends AppCompatActivity{
 
     private static final int REQUEST_CODE_DRAW = 1;
     FloatingActionMenu materialDesignFAM;
-    FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
+    FloatingActionButton floatingActionButton2, floatingActionButton3;
 
-
+    Button create_dataset;
 
     private static final String TAG = "ha" ;
 
@@ -59,7 +60,13 @@ public class MainActivity extends AppCompatActivity{
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.material_design_android_floating_action_menu);
         floatingActionButton2 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item2);
         floatingActionButton3 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item3);
-
+        create_dataset=findViewById(R.id.create_dataset);
+        create_dataset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CreateDataset.class));
+            }
+        });
 
         floatingActionButton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

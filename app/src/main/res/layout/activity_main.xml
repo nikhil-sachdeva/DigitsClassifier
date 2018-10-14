@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/tools">
-    <com.github.clans.fab.FloatingActionMenu
+    
+    
+      <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/material_design_android_floating_action_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,7 +62,18 @@
             android:src="@drawable/cam_icon"
             fab:fab_label="Menu Item 3"
             fab:fab_size="mini" />
+
+
+
     </com.github.clans.fab.FloatingActionMenu>
 
+    <Button
+        android:id="@+id/create_dataset"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="54dp"
+        android:text="Create Dataset" />
 
 </RelativeLayout>

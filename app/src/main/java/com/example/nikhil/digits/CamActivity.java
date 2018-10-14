@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.nikhil.digits.Utils.ImageClassifier;
+
 import java.io.IOException;
 
 public class CamActivity extends AppCompatActivity {

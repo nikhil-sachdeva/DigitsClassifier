@@ -1,4 +1,4 @@
-package com.example.nikhil.digits;
+package com.example.nikhil.digits.Utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -67,7 +67,7 @@ public class ImageClassifier {
                     });
 
 
-    ImageClassifier(Activity activity) throws IOException {
+    public ImageClassifier(Activity activity) throws IOException {
         tflite = new Interpreter(loadModelFile(activity));
         labelList = loadLabelList(activity);
         imgData =
@@ -84,7 +84,7 @@ public class ImageClassifier {
 
 
 
-    String classifyFrame(Bitmap bitmap) {
+    public String classifyFrame(Bitmap bitmap) {
         if (tflite == null) {
             Log.e(TAG, "Image classifier has not been initialized; Skipped.");
             return "Uninitialized Classifier.";
