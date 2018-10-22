@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.raed.drawingview.DrawingView
+        android:id="@+id/draw_view"
+        android:layout_margin="10dp"
+        android:layout_width="362dp"
+        android:layout_height="360dp"
+        app:brush="pencil"
+        app:brush_size="1"
+        app:brush_color="#2187bb"
+        app:drawing_background_color="#dddddd"
+        />
+    <TextView
+        android:id="@+id/pred"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/draw_view"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+<LinearLayout
+    android:layout_below="@+id/pred"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="30dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:text="Check" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="30dp"
+        />
+
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="430dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
