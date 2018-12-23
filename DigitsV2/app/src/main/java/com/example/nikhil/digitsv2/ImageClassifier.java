@@ -29,16 +29,16 @@ public class ImageClassifier {
     private ByteBuffer imgData = null;
     private static final int DIM_BATCH_SIZE = 1;
 
-    private static final int DIM_PIXEL_SIZE = 3;
+    private static final int DIM_PIXEL_SIZE = 1;
 
-    private static final int DIM_IMG_SIZE_X = 224;
-    private static final int DIM_IMG_SIZE_Y = 224;
+    private static final int DIM_IMG_SIZE_X = 102;
+    private static final int DIM_IMG_SIZE_Y = 108;
 
-    private static final int IMAGE_MEAN = 128;
-    private static final float IMAGE_STD = 128.0f;
+    private static final int IMAGE_MEAN = 51;
+    private static final float IMAGE_STD = 51.0f;
     private static final int RESULTS_TO_SHOW = 3;
 
-    private static final String MODEL_PATH = "graph.lite";
+    private static final String MODEL_PATH = "optimized_graph.lite";
 
     /** Name of the label file stored in Assets. */
     private static final String LABEL_PATH = "labels.txt";
@@ -83,7 +83,7 @@ public class ImageClassifier {
             Log.e(TAG, "Image classifier has not been initialized; Skipped.");
             return "Uninitialized Classifier.";
         }
-        Bitmap bitmap1 = Bitmap.createScaledBitmap(bitmap,224,224,true);
+        Bitmap bitmap1 = Bitmap.createScaledBitmap(bitmap,102,108,true);
         convertBitmapToByteBuffer(bitmap1);
         Log.d(TAG, "classifyFrame: "+labelList.size());
         tflite.run(imgData, labelProbArray);
@@ -160,8 +160,6 @@ public class ImageClassifier {
         for (int i = 0; i < DIM_IMG_SIZE_X; ++i) {
             for (int j = 0; j < DIM_IMG_SIZE_Y; ++j) {
                 final int val = intValues[pixel++];
-                imgData.putFloat((((val >> 16) & 0xFF)-IMAGE_MEAN)/IMAGE_STD);
-                imgData.putFloat((((val >> 8) & 0xFF)-IMAGE_MEAN)/IMAGE_STD);
                 imgData.putFloat((((val) & 0xFF)-IMAGE_MEAN)/IMAGE_STD);
             }
         }
